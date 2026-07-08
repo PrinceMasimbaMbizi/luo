@@ -875,24 +875,44 @@
 
 
 
-            <form class="contact-form">
+            <form action="https://formsubmit.co/aaronchomba980@gmail.com" method="POST">
 
-                <input type="text" placeholder="Full Name" required>
 
-                <input type="email" placeholder="Email Address" required>
+                <input type="hidden" name="_captcha" value="false">
 
-                <input type="tel" placeholder="Phone Number">
 
-                <textarea rows="6" placeholder="Your Message"></textarea>
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+
+
+                <input type="hidden" name="_subject" value="New Appointment Booking - Luo Healthy Centre">
+
+
+                <input type="text" name="full_name" placeholder="Full Name" required>
+
+                <input type="tel" name="phone_number" placeholder="Phone Number" required>
+
+                <input type="email" name="email" placeholder="Email Address">
+
+                <input type="date" name="appointment_date" required>
+
+                <select name="service" required>
+                    <option value="">Select Service</option>
+                    <option>Full Body Scanning</option>
+                    <option>Health Consultation</option>
+                    <option>Wellness Assessment</option>
+                    <option>Personalized Health Plans</option>
+                    <option>Health Monitoring</option>
+                    <option>Wellness Support</option>
+                </select>
+
+                <textarea name="additional_information" rows="6"
+                    placeholder="Please tell us about your health concerns or any additional information..."></textarea>
 
                 <button type="submit" class="btn">
-
-                    Send Message
-
+                    Book Appointment
                 </button>
 
             </form>
-
         </div>
 
     </section>
