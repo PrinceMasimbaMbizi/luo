@@ -225,3 +225,35 @@ document.getElementById("bookingForm").addEventListener("submit", (e) => {
     e.target.reset();
 
 });
+
+
+const serviceSections = document.querySelectorAll(".service-details");
+
+function openService(id) {
+
+    // Hide all sections
+    serviceSections.forEach(section => {
+
+        section.classList.remove("active");
+
+    });
+
+    // Show selected section
+    document.getElementById(id).classList.add("active");
+
+    // Smooth scroll to it
+    document.getElementById(id).scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
+
+}
+
+function closeService(id) {
+
+    document.getElementById(id).classList.remove("active");
+
+}
