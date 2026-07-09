@@ -258,12 +258,16 @@ function openService(id) {
     document.getElementById(id).classList.add("active");
 
     // Smooth scroll to it
-    document.getElementById(id).scrollIntoView({
+    const section = document.getElementById(id);
 
-        behavior: "smooth",
+    const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        110;   // navbar height
 
-        block: "start"
-
+    window.scrollTo({
+        top: y,
+        behavior: "smooth"
     });
 
 }
