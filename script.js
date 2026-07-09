@@ -184,17 +184,21 @@ reveals.forEach(section => {
 BOOKING MODAL
 =========================*/
 
-const openBooking = document.getElementById("openBooking");
+const bookingButtons = document.querySelectorAll(".openBooking");
 
 const bookingModal = document.getElementById("bookingModal");
 
 const closeBooking = document.querySelector(".close-btn");
 
-openBooking.addEventListener("click", (e) => {
+bookingButtons.forEach(button => {
 
-    e.preventDefault();
+    button.addEventListener("click", (e) => {
 
-    bookingModal.classList.add("active");
+        e.preventDefault();
+
+        bookingModal.classList.add("active");
+
+    });
 
 });
 
@@ -211,6 +215,18 @@ window.addEventListener("click", (e) => {
         bookingModal.classList.remove("active");
 
     }
+
+});
+
+document.getElementById("bookingForm").addEventListener("submit", (e) => {
+
+    e.preventDefault();
+
+    alert("Thank you! Your appointment request has been received.");
+
+    bookingModal.classList.remove("active");
+
+    e.target.reset();
 
 });
 
