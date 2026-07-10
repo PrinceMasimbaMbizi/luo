@@ -2045,22 +2045,16 @@ LIST
 
 .service-text li::before {
 
-    content: "✓";
+    content: "";
 
-    width: 24px;
-    height: 24px;
+    width: 4px;
+    height: 100%;
 
     background: #2e7d32;
 
-    color: white;
+    border-radius: 20px;
 
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 12px;
+    flex-shrink: 0;
 
 }
 
@@ -2368,4 +2362,66 @@ RESPONSIVE
 
 .service-details.active {
     display: block;
+}
+
+
+.click-me {
+
+    margin-top: 25px;
+
+    color: #2e7d32;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    text-align: center;
+
+    opacity: 0;
+
+    animation: none;
+
+    transition: .4s;
+
+}
+
+.service-card.show-click .click-me {
+
+    opacity: 1;
+
+    animation: clickPulse 1s infinite;
+
+}
+
+
+/*Shake shake for the service cards 😂😂😂*/
+@keyframes shakeCard {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-4px);
+    }
+
+    40% {
+        transform: translateX(4px);
+    }
+
+    60% {
+        transform: translateX(-4px);
+    }
+
+    80% {
+        transform: translateX(4px);
+    }
+
+}
+
+.service-card.shake {
+
+    animation: shakeCard .6s ease;
+
 }

@@ -278,3 +278,50 @@ function closeService(id) {
     document.getElementById(id).classList.remove("active");
 
 }
+
+
+
+const cards = document.querySelectorAll(".service-card");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            cards.forEach((card, index) => {
+
+                setTimeout(() => {
+
+                    card.classList.add("shake");
+                    card.classList.add("show-click");
+
+                }, index * 150);
+
+                setTimeout(() => {
+
+                    card.classList.remove("shake");
+
+                }, 1000);
+
+            });
+
+        }
+
+    });
+
+}, {
+    threshold: .4
+});
+
+observer.observe(document.querySelector(".service-pages"));
+
+cards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        card.classList.remove("show-click");
+
+    });
+
+});
