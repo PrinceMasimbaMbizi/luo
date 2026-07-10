@@ -151,7 +151,7 @@ SCROLL REVEAL
 
 const reveals = document.querySelectorAll("section");
 
-window.addEventListener("scroll", () => {
+function revealSections() {
 
     reveals.forEach(section => {
 
@@ -160,14 +160,23 @@ window.addEventListener("scroll", () => {
         if (top < window.innerHeight - 100) {
 
             section.style.opacity = "1";
-
             section.style.transform = "translateY(0)";
-
         }
 
     });
 
+}
+
+reveals.forEach(section => {
+
+    section.style.opacity = "0";
+    section.style.transform = "translateY(60px)";
+    section.style.transition = ".8s";
+
 });
+
+window.addEventListener("scroll", revealSections);
+window.addEventListener("load", revealSections);
 
 reveals.forEach(section => {
 
