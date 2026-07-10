@@ -242,35 +242,27 @@ document.getElementById("bookingForm").addEventListener("submit", (e) => {
 
 });
 
-
 const serviceSections = document.querySelectorAll(".service-details");
 
 function openService(id) {
 
-    // Hide all sections
     serviceSections.forEach(section => {
-
         section.classList.remove("active");
-
     });
 
-    // Show selected section
-    document.getElementById(id).classList.add("active");
-
-    // Smooth scroll to it
     const section = document.getElementById(id);
 
-    const y =
-        section.getBoundingClientRect().top +
-        window.pageYOffset -
-        110;   // navbar height
+    if (section) {
+        section.classList.add("active");
 
-    window.scrollTo({
-        top: y,
-        behavior: "smooth"
-    });
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
 
 }
+
 
 function closeService(id) {
 
