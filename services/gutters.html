@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAAMK Gutters | Gutter Installation & Maintenance</title>
+
+<style>
+    /* Logo */
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+    }
+
+
+
+    .nav {
+        display: flex;
+        gap: 35px;
+    }
+
+    .nav a {
+        position: relative;
+        color: #12355B;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 0;
+        transition: .3s;
+    }
+
+    .nav a::after {
+
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+
+        width: 0;
+        height: 3px;
+
+        background: #f97316;
+        border-radius: 50px;
+
+        transition: .35s;
+    }
+
+    .nav a:hover {
+        color: #f97316;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+        width: 100%;
+    }
+
+    .nav a.active {
+        color: #f97316;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+        z-index: 1000;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown>a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 260px;
+
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
+
+        display: none;
+        overflow: hidden;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 15px 20px;
+        color: #12355B;
+        transition: .3s;
+    }
+
+    .dropdown-menu a:hover {
+        background: #f97316;
+        color: #fff;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+
+    /*==============================
+GLOBAL
+==============================*/
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #f7f9fc;
+        color: #222;
+        line-height: 1.8;
+        overflow-x: hidden;
+    }
+
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1300px;
+        margin: auto;
+    }
+
+    .section {
+        padding: 110px 0;
+    }
+
+
+
+    /*==============================
+PAGE HERO
+==============================*/
+
+    .page-hero {
+        position: relative;
+        height: calc(65vh - 85px);
+        min-height: 450px;
+
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .page-hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        object-position: center 30%;
+    }
+
+    .page-hero-overlay {
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(90deg,
+                rgba(0, 0, 0, .82) 0%,
+                rgba(0, 0, 0, .65) 35%,
+                rgba(0, 0, 0, .30) 60%,
+                rgba(0, 0, 0, .10) 100%);
+    }
+
+    .page-hero-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+    }
+
+    .page-hero h1 {
+        max-width: 700px;
+        font-size: 3.6rem;
+        line-height: 1.2;
+        margin-bottom: 25px;
+    }
+
+    .page-hero p {
+        max-width: 650px;
+        font-size: 1.2rem;
+        line-height: 1.9;
+    }
+
+    .page-hero h1 {
+
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+
+    }
+
+    .page-hero p {
+
+        max-width: 760px;
+        margin: auto;
+
+        font-size: 20px;
+        line-height: 1.9;
+
+    }
+
+
+
+    /*==============================
+SERVICE SECTION
+==============================*/
+
+    .service-content {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 90px;
+
+    }
+
+    .service-content.reverse {
+
+        flex-direction: row-reverse;
+
+    }
+
+
+
+    /*==============================
+IMAGE
+==============================*/
+
+    .service-image {
+
+        flex: 1;
+
+    }
+
+    .service-image img {
+
+        width: 100%;
+        height: 520px;
+
+        object-fit: cover;
+
+        border-radius: 20px;
+
+        box-shadow: 0 25px 60px rgba(0, 0, 0, .15);
+
+    }
+
+
+
+    /*==============================
+TEXT
+==============================*/
+
+    .service-info {
+
+        flex: 1;
+
+    }
+
+    .service-info h2 {
+
+        color: #12355B;
+
+        font-size: 2.7rem;
+
+        margin-bottom: 25px;
+
+        line-height: 1.3;
+
+    }
+
+    .service-info p {
+
+        font-size: 18px;
+
+        color: #555;
+
+        margin-bottom: 22px;
+
+        text-align: justify;
+
+    }
+
+    .service-info ul {
+
+        margin-top: 30px;
+
+        list-style: none;
+
+    }
+
+    .service-info li {
+
+        background: white;
+
+        padding: 15px 20px;
+
+        margin-bottom: 12px;
+
+        border-left: 5px solid #f97316;
+
+        border-radius: 10px;
+
+        box-shadow: 0 8px 18px rgba(0, 0, 0, .05);
+
+        font-size: 17px;
+
+    }
+
+
+
+    /*==============================
+CTA
+==============================*/
+
+    .cta {
+
+        background: #12355B;
+
+        color: white;
+
+        text-align: center;
+
+        padding: 90px 20px;
+
+    }
+
+    .cta h2 {
+
+        font-size: 3rem;
+
+        margin-bottom: 20px;
+
+    }
+
+    .cta p {
+
+        max-width: 750px;
+
+        margin: auto;
+
+        font-size: 18px;
+
+        line-height: 1.9;
+
+        margin-bottom: 40px;
+
+    }
+
+    .btn {
+
+        display: inline-block;
+
+        background: #f97316;
+
+        color: white;
+
+        padding: 18px 45px;
+
+        border-radius: 50px;
+
+        font-size: 17px;
+
+        font-weight: 600;
+
+        transition: .35s;
+
+    }
+
+    .btn:hover {
+
+        background: #ea580c;
+
+        transform: translateY(-6px);
+
+        box-shadow: 0 20px 35px rgba(0, 0, 0, .18);
+
+    }
+
+
+
+    /*==============================
+MOBILE
+==============================*/
+
+    @media(max-width:992px) {
+
+        .service-content,
+        .service-content.reverse {
+
+            flex-direction: column;
+
+            gap: 50px;
+
+        }
+
+        .service-image img {
+
+            height: 380px;
+
+        }
+
+        .service-info {
+
+            text-align: center;
+
+        }
+
+        .service-info h2 {
+
+            font-size: 2.2rem;
+
+        }
+
+        .service-info p {
+
+            text-align: left;
+
+            font-size: 17px;
+
+        }
+
+        .service-info ul {
+
+            text-align: left;
+
+        }
+
+    }
+
+    @media(max-width:768px) {
+
+        .page-hero {
+
+            padding: 130px 20px 90px;
+
+        }
+
+        .page-hero h1 {
+
+            font-size: 2.5rem;
+
+        }
+
+        .page-hero p {
+
+            font-size: 17px;
+
+        }
+
+        .service-image img {
+
+            height: 280px;
+
+        }
+
+        .service-info h2 {
+
+            font-size: 1.9rem;
+
+        }
+
+        .cta h2 {
+
+            font-size: 2.2rem;
+
+        }
+
+        .btn {
+
+            width: 100%;
+
+            max-width: 320px;
+
+        }
+
+    }
+
+    .service-image {
+        flex: 1.2;
+    }
+
+    .service-info {
+        flex: 1;
+    }
+</style>
+
+<meta name="description"
+    content="Professional gutter installation, waterproofing, roofing and steel structure solutions.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://kit.fontawesome.com/7a4b62b0a4.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="SAAMK Gutters">
+            </a>
+
+            <nav class="nav">
+
+                <a href="../index.html">Home</a>
+
+                <div class="dropdown">
+
+                    <a href="#">
+                        Services <i class="fas fa-chevron-down"></i>
+                    </a>
+
+                    <div class="dropdown-menu">
+
+                        <a href="gutters.html">Gutter Installation</a>
+                        <a href="waterproofing.html">Waterproofing</a>
+                        <a href="steel.html">Steel & Zinc Structures</a>
+                        <a href="roofing.html">Roofing Services</a>
+
+                    </div>
+
+                </div>
+
+                <a href="../index.html#about">About</a>
+
+                <a href="../index.html#contact">Contact</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+    <br>
+    <br>
+    <!-- ================= PAGE HERO ================= -->
+
+    <section class="page-hero">
+
+        <img src="../images/Installationbackground.png" alt="Gutter Installation" class="page-hero-image">
+
+        <div class="page-hero-overlay"></div>
+
+        <div class="container page-hero-content">
+
+            <h1>Gutter Installation & Maintenance</h1>
+
+            <p>
+                Professional gutter installation, repairs, cleaning and maintenance
+                services for residential, commercial and industrial properties.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SECTION 1 ================= -->
+
+    <section class="section">
+
+        <div class="container service-content">
+
+            <div class="service-image">
+
+                <img src="../images/Installation1.jpg" alt="Gutter Installation">
+
+            </div>
+
+            <div class="service-info">
+
+                <h2>Professional Gutter Installation</h2>
+
+                <p>
+
+                    Our experienced team installs high-quality gutter systems that
+                    effectively channel rainwater away from your building, protecting
+                    your walls, foundation and landscaping from costly water damage.
+
+                </p>
+
+                <p>
+
+                    Every installation is completed using durable materials and
+                    professional workmanship to ensure long-lasting performance in
+                    every weather condition.
+
+                </p>
+
+                <ul>
+
+                    <li>✔ Residential Installations</li>
+                    <li>✔ Commercial Installations</li>
+                    <li>✔ Custom Gutter Systems</li>
+                    <li>✔ Aluminium Gutters</li>
+                    <li>✔ PVC Gutters</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SECTION 2 ================= -->
+
+    <section class="section">
+
+        <div class="container service-content reverse">
+
+            <div class="service-image">
+
+                <img src="../images/Installation2.jpg" alt="Gutter Repairs">
+
+            </div>
+
+            <div class="service-info">
+
+                <h2>Repairs & Preventative Maintenance</h2>
+
+                <p>
+
+                    Damaged or leaking gutters can quickly lead to expensive repairs.
+                    Our specialists inspect, repair and restore existing gutter
+                    systems before small issues become major structural problems.
+
+                </p>
+
+                <p>
+
+                    Routine maintenance improves drainage, prevents rust and blockages
+                    and extends the lifespan of your gutter installation while keeping
+                    your property looking clean and professional.
+
+                </p>
+
+                <ul>
+
+                    <li>✔ Leak Repairs</li>
+                    <li>✔ Rust Removal</li>
+                    <li>✔ Joint Sealing</li>
+                    <li>✔ Downpipe Repairs</li>
+                    <li>✔ Annual Maintenance</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SECTION 3 ================= -->
+
+    <section class="section">
+
+        <div class="container service-content">
+
+            <div class="service-image">
+
+                <img src="../images/Installation3.jpg" alt="Gutter Cleaning">
+
+            </div>
+
+            <div class="service-info">
+
+                <h2>Professional Cleaning Services</h2>
+
+                <p>
+
+                    Blocked gutters can cause overflowing water, roof damage and
+                    foundation problems. We provide thorough gutter cleaning to remove
+                    leaves, dirt and debris while ensuring your drainage system works
+                    efficiently all year round.
+
+                </p>
+
+                <p>
+
+                    Our team works safely and efficiently, leaving your gutters clean,
+                    fully functional and ready to handle heavy rainfall.
+
+                </p>
+
+                <ul>
+
+                    <li>✔ Leaf Removal</li>
+                    <li>✔ Debris Cleaning</li>
+                    <li>✔ Downpipe Flushing</li>
+                    <li>✔ Roof Edge Inspection</li>
+                    <li>✔ Complete System Testing</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CALL TO ACTION ================= -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>Need Professional Gutter Services?</h2>
+
+            <p>
+
+                Whether you need a new installation, repairs or regular maintenance,
+                SAAMK Gutters is ready to help with reliable workmanship and
+                competitive pricing.
+
+            </p>
+
+            <a href="../index.html#contact" class="btn">
+
+                Request a Free Quote
+
+            </a>
+
+        </div>
+
+    </section>
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
